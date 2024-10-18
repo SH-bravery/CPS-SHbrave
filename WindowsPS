@@ -1,0 +1,35 @@
+
+
+#Get Current Username
+  $currentUsername = whoami
+
+#Create a Folder
+  New-Item -Path "C:\Users\$currentUsername\Desktop\CPSCRIPTwindowsBrvUSERS" -ItemType Directory
+#Check all Users
+  Get-LocalUser | Select-Object -Property Name
+#Export a List of All Users
+  Get-LocalUser | Select-Object -Property Name | Out-File -FilePath "C:\Users\$currentUsername\Desktop\CPSCRIPTwindowsBrvUSERS\AllUsersLIST.txt"
+
+#User List Length
+  New-Item -Path "C:\Users\$currentUsername\Desktop\CPSCRIPTwindowsBrvUSERS\USERlistLength.txt" -ItemType Directory
+  $USERlist = 1
+  Out-File -FilePath "C:\Users\$currentUsername\Desktop\CPSCRIPTwindowsBrvUSERS\USERlistLength.txt"
+
+
+# Get input from the user
+  while ($USERlist) {
+    $userInput = Read-Host "USERS From README"
+
+  }
+  
+# Read the contents of the text file
+  $fileContents = Get-Content "C:\Users\$currentUsername\Desktop\CPSCRIPTwindowsBrv\AllUsersLIST.txt"
+# Check if the input is in the file contents
+  while () {
+    if ($fileContents -contains $userInput) {
+        Write-Host "The input matches an entry in the file."
+    } else {
+        Write-Host "The input does not match any entries in the file."
+    }
+  }
+  

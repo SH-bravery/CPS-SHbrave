@@ -1,4 +1,6 @@
-
+#I'm uncertain if this script works
+#I have not tested it yet
+#-SHbrave-
 
 #Get Current Username
   $currentUsername = whoami
